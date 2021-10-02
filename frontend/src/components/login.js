@@ -52,31 +52,37 @@ export default function Login() {
     }
 
     return (
-        <Container Style="position: absolute;
-        top:50%;
-        left: 50%;           
-        margin-top: -100px;
-        margin-left: -100px;
+        <Container Style="
+        max-width:40%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
         border-style: solid;">
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} Style="
+        padding: auto;
+        ">
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label >Usuario</Form.Label>
-          <Form.Control Style="width:30%" 
+          <Form.Label >Usuario
+          <Form.Control 
           type="text" 
           placeholder="Usuario" 
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           />
+          </Form.Label>
         </Form.Group>
       
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Contraseña</Form.Label>
-          <Form.Control Style="width:30%" 
+          <Form.Label>Contraseña
+          <Form.Control 
           type="password" 
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
            />
+          </Form.Label>
         </Form.Group>
         <Button variant="primary" type="submit" disabled={!validateForm()}>
           Submit

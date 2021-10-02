@@ -29,18 +29,21 @@ export default function Champions() {
     }
     
     return(
-        <div Style='background-color: black'>
+        <div Style='background-color: black;
+        margin-left: auto;
+        margin-right: auto;
+        display: table;'>
         <div className='row'>
         {data.map(data => (
-            <div className='col-3' key={data.id}>
+            <div className='col-2 mb-2' key={data.id_champ}>
             <Card Style='width: 14rem'>
-                <Card.Img variant="top" src={"../../iconos/"+data.id+".jpg"}/>
+                <Card.Img variant="top" src={"../../iconos/"+data.id_champ+".jpg"}/>
                 <Card.Body>
                 <Card.Title>{data.name}</Card.Title>
                 <Card.Text>
                     {data.title}
                 </Card.Text>
-                <Button key={data.id} value={data.id} onClick={xd}>Commit</Button>
+                <Button key={data.id_champ} value={data.id_champ} onClick={xd}>Commit</Button>
                 </Card.Body>
             </Card>
             </div>

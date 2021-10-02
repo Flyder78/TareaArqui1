@@ -14,22 +14,22 @@ router.get('/home', async (req,res) =>{
 
 router.post('/commit', async (req,res) =>{
     const {idchamp}=req.body;
-    const data= await pool.query("Select * FROM champions where id=$1", [idchamp])
+    const data= await pool.query("Select * FROM champions where id_champ=$1", [idchamp])
     res.json(data.rows);
 })
 router.post('/commit2', async (req,res) =>{
     const {idchamp}=req.body;
-    const data= await pool.query("SELECT u.usuario,c.comentario FROM usuario AS u INNER JOIN comentarios as c ON u.id_user=c.id_usuario where c.id_champion=$1", [idchamp])
+    const data= await pool.query("SELECT u.usuario,c.comentario FROM usuarios AS u INNER JOIN comentarios as c ON u.id_usuario=c.id_user where c.id_champ=$1", [idchamp])
     res.json(data.rows);
 })
 
 router.post('/login', async(req,res) =>{
     const {user, pass}=req.body;
-    const getUser= await pool.query("SELECT id_user FROM usuario where usuario = $1 AND clave = $2", [user, pass]);
+    const getUser= await pool.query("SELECT id_usuario FROM usuarios where usuario = $1 AND clave = $2", [user, pass]);
     if( getUser.rows.length){
         res.json({
             status:1,
-            token:getUser.rows[0].id_user
+            token:getUser.rows[0].id_usuario
         })
         return
     }else{
