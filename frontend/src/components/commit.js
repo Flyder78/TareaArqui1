@@ -1,37 +1,15 @@
 import React, { useState,useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Toast from 'react-bootstrap/Toast';
 import ToastContainer from 'react-bootstrap/ToastContainer'
 
-export default function Champions() {
+export default function Commit() {
 
 
 
-    const [champ, setchamp] = useState([]);
     const [data, setdata] = useState([]);
 
     useEffect(() => {
-        const getChamps = async () => {
-            fetch('http://localhost:3000/commit', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            idchamp:localStorage.getItem('idchamp')
-          }),
-        })
-                .then(response => response.json())
-                .then(value => {
-                    setchamp(value);
-                    console.log(champ)
-                    
-                });
-        };
-        getChamps().catch(null);
         const getCommit = async () => {
             fetch('http://localhost:3000/commit2', {
           method: 'POST',
@@ -46,7 +24,6 @@ export default function Champions() {
                 .then(response => response.json())
                 .then(value => {
                     setdata(value);
-                    console.log(data)
                     
                 });
         };
@@ -58,10 +35,8 @@ export default function Champions() {
     
     return(
     <div>
+      {console.log(data)}
         <ToastContainer>
-        <div>{champ.map(data => (
-            champ.name
-        ))}</div>
             {data.map(data => (
                 <Toast key={data.id_comentario}>
                 <Toast.Header>
