@@ -23,12 +23,7 @@ router.post('/commit2', async (req,res) =>{
     res.json(data.rows);
 })
 
-router.post('/enviarcommit', async (req,res) =>{
-    const {commit}=req.body;
-    const {champid}
-    const data= await pool.query("SELECT u.usuario,c.comentario FROM usuarios AS u INNER JOIN comentarios as c ON u.id_usuario=c.id_user where c.id_champ=$1", [commit,champid])
-    res.json(data.rows);
-})
+
 
 
 
