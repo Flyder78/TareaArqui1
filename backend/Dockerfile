@@ -7,5 +7,7 @@ COPY db.js ./
     
 
 RUN npm install
+
+
 CMD ["npm","start"]
  

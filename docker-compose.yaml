@@ -16,7 +16,6 @@ services:
       dockerfile: Dockerfile 
     depends_on:
       - dbsql
-    command: tail -f /dev/null
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
@@ -35,7 +34,6 @@ services:
       - backend
       - dbsql
     restart: always
-    command: tail -f /dev/null
     volumes:
       - ./frontend/public:/home/node/public
       - ./frontend/src:/home/node/src
