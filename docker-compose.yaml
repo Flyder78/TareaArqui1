@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   dbsql:
-    image: postgres:alpine3.14
+    image: postgres:13.4-alpine3.14
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres
